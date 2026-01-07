@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Result | SparkQue</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Quiz Result</h2>
+        <h3 id="status"></h3><br>
+        <button class="btn back-btn" onclick="goHome()">
+            Back to Home
+        </button>
+
+    </div>
+
+    <script>
+        const score = parseInt(localStorage.getItem("score"));
+        const status = document.getElementById("status");
+
+        if (score >= 2) {
+            status.innerHTML = "✅ Qualified<br>Score: " + score;
+            status.style.color = "green";
+        } else {
+            status.innerHTML = "❌ Not Qualified<br>Score: " + score;
+            status.style.color = "red";
+        }
+
+        function goHome() {
+            // Clear quiz-specific data
+            localStorage.removeItem("score");
+            localStorage.removeItem("selectedProfile");
+
+            // Redirect to dashboard (home)
+            window.location.href = "Dashboard.html";
+        }
+    </script>
+
+</body>
+
+</html>

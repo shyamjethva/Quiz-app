@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Panel | SparkQue</title>
+    <link rel="stylesheet" href="Style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+        }
+
+        select {
+            padding: 8px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container dashboard">
+        <h2>Admin Panel</h2>
+
+        <div>
+            <select id="profileFilter" onchange="renderTable()">
+                <option value="">All Profiles</option>
+                <option>UI/UX</option>
+                <option>Digital Marketing</option>
+                <option>BDE</option>
+                <option>Python</option>
+                <option>Java</option>
+                <option>MERN</option>
+                <option>Data Analytics</option>
+            </select>
+
+            <select id="statusFilter" onchange="renderTable()">
+                <option value="">All Status</option>
+                <option>Qualified</option>
+                <option>Not Qualified</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Profile</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
